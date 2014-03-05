@@ -27,12 +27,23 @@
             elements.each(function() {
                 element = $(this);
                 if (element.attr("type") !== "submit") {
-                    element.replaceWith("<span id=\"" + element.attr("id") + "\">" + element.val() + "</span>");
+                    var newId = "";
+                    if (element.attr("id")) {
+                        newId = element.attr("id");
+                    }
+                    else if (element.attr("name")) {
+                        newId = element.attr("name");
+                    }
+                    var newElement = $("<span />", {id: newId, html: element.val() });
+                    element.replaceWith(newElement);
                 }
                 else {
                     element.remove();
                 }
             });
+
+            // Get rid of the actual form element.
+            self.$el.replaceWith(self.$el.html());
         };
 
         // Run initializer
