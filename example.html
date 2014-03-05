@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Title</title>
+        <!-- <link rel="stylesheet" href="style.css"/> -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+        <script src="jquery-inline-form-values.js"></script>
+    </head>
+    <body>
+        <form name="test-form" method="post" action="#" id="test-form">
+            <p>Name: <input name="my-name" id="my-name" value="Test Person" /></p>
+            <p>Phone: <input name="my-phone" id="my-phone" value="(417) 555-1212" /></p>
+            <p>Message: <br /><textarea name="my-message" id="my-message">This is a message from me to you!</textarea></p>
+            <p>Best Time: <select name="my-time" id="my-time">
+                <option value="Morning" selected>Morning</option>
+                <option value="Noon" selected>Noon</option>
+                <option value="Night" selected>Night</option>
+            </select></p>
+            <p><input type="submit" value="Submit" /></p>
+        </form>
+        <script>
+            $(document).ready(function(){
+                $("#test-form").inlineFormValues();
+            });
+        </script>
+    </body>
+</html>
+
