@@ -10,7 +10,8 @@
         self.$el.data("inlineFormValues", self);
 
         self.defaultOptions = {
-            catchSubmit: true
+            catchSubmit: true,
+            copyClasses: false
         };
 
         self.init = function() {
@@ -34,7 +35,12 @@
                     else if (element.attr("name")) {
                         newId = element.attr("name");
                     }
-                    var newElement = $("<span />", {id: newId, html: element.val() });
+
+                    var classes = "";
+                    if (self.options.copyClasses) {
+                        classes = element.attr("class");
+                    }
+                    var newElement = $("<span />", {id: newId, html: element.val(), class: classes });
                     element.replaceWith(newElement);
                 }
                 else {
